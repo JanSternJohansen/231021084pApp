@@ -27,12 +27,18 @@ public class MainActivitySensors extends AppCompatActivity implements SensorEven
         txtZslope = findViewById(R.id.txtZslope);
 
         layout = findViewById(R.id.layout);
+        ///////////////////////////////////////////////////////////
+
+
+
+        //////////////////////////////////////////////////////////////
+
 
         RollerGraphics roller = new RollerGraphics(this);
         layout.addView(roller);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensorManager.registerListener(roller, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),100000);
+        sensorManager.registerListener(roller, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),1000000);
     }
 
     @Override
