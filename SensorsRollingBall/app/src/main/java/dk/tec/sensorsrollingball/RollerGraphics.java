@@ -1,6 +1,8 @@
 package dk.tec.sensorsrollingball;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -50,10 +52,15 @@ public class RollerGraphics extends View implements SensorEventListener
     {
         //Log.d("Jan", "Draw: " + numberDraw++);
         super.draw(canvas);
-        ball.setBounds((int)ballX, (int)ballY, Math.round(ballX + ballWidth), Math.round(ballY + ballHeight));
-        ball.draw(canvas);
-
+        //ball.setBounds((int)ballX, (int)ballY, Math.round(ballX + ballWidth), Math.round(ballY + ballHeight));
+        //ball.draw(canvas);
         matrix.drawMatrix(canvas);
+
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        canvas.drawCircle(ballX + ballWidth/2, ballY + ballWidth/2, 30, paint);
+
+
 
     }
 
@@ -99,7 +106,7 @@ public class RollerGraphics extends View implements SensorEventListener
                 ballX += 10;
             else
                 ballX -= 10;
-            Log.d("Delta","DeltaX: " + deltaX);
+            //Log.d("Delta","DeltaX: " + deltaX);
         }
 
         if(matrix.isCollisionHorizontal(ballX, ballY, ballX + ballWidth, ballY + ballHeight, ballMargin))
