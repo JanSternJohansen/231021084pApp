@@ -101,7 +101,7 @@ public class RollerGraphics extends View implements SensorEventListener
         /////////////////////////////////////////////////////
         if(matrix.isCollisionVertical(ballX, ballY, ballX + ballWidth, ballY + ballHeight, ballMargin))
         {
-            deltaX *= bounce;
+            deltaX *= bounce; // Vend retning og dæmp
             if(deltaX > 0)
                 ballX += 10;
             else
